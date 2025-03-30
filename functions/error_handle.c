@@ -28,8 +28,22 @@ void print_errors(int x)
 		ft_printf("Error\n");
 		ft_printf("Some files are not exist\n");
 		break;
+	case 4:
+		ft_printf("Error\n");
+		ft_printf("Some chars are not for the game?\n");
+		break;
+	case 5:
+		ft_printf("Error\n");
+		ft_printf("Count of objects are not good for the game\n");
+		break;
 	default:
 		break;
 	}
 	exit(1);
+}
+
+void free_all(t_game *game)
+{
+	free_map(game);
+	free(game);
 }

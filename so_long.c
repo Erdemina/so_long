@@ -21,7 +21,9 @@ int main(int argc, char **argv)
 		print_errors(1);
 
 	file_check(argv[1], game);
+	init_map(game);
+	map_check(game);
 
-	free(game);
+	free_all(game);
 	return (0);
 }
