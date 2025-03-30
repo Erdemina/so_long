@@ -23,7 +23,11 @@ void print_errors(int x)
 	case 2:
 		ft_printf("Error\n");
 		ft_printf("That file is not a .ber\n");
-	
+		break;
+	case 3:
+		ft_printf("Error\n");
+		ft_printf("Some files are not exist\n");
+		break;
 	default:
 		break;
 	}

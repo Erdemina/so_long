@@ -32,11 +32,32 @@ static int ber_check(char *arg)
 	}
 	if (arg[i] != ber[i])
 		print_errors(2);
-	return 1;
+	return (1);
+}
+
+int exist_check(char *path)
+{
+	int 	fd_file;
+
+	fd_file = open(path,O_RDONLY);
+	if (fd_file <= 0)
+	{
+		close(fd_file);
+		print_errors(3);
+	}
+	close(fd_file);
+	return (1);
+	
 }
 
 void file_check(char *arg, t_game *game)
 {
 	game->f_name = arg;
-	ber_check(game->f_name);
+	ber_check(game -> f_name);
+	exist_check(game -> f_name);
+	exist_check("img/coin.xpm");
+	exist_check("img/exit.xpm");
+	exist_check("img/floor.xpm");
+	exist_check("img/hero.xpm");
+	exist_check("img/wall.xpm");
 }
