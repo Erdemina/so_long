@@ -10,31 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+/*#include "../so_long.h"
 
-static int ber_check(char *arg)
+void map_check(char **arg, t_game *game)
 {
-	int i;
-	char *ber;
-
-	ber = ".ber";
-	i = 0;
-
-	while (arg[i] != '.' && arg[i])
-		i++;
-	arg = &arg[i];
-	i = 0;
-	while(arg[i] && ber[i])
-	{
-		if(arg[i] != ber[i])
-			print_errors(2);
-		i++;
-	}
-	if (arg[i] != ber[i])
-		print_errors(2);
-	return 1;
-}
-void map_check(char **arg)
-{
-	ber_check(arg[0]);
-}
+		
+}*/
