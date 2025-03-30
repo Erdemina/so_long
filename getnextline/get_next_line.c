@@ -6,7 +6,7 @@
 /*   By: eulutas <eulutas@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:49:31 by eulutas           #+#    #+#             */
-/*   Updated: 2025/01/19 17:37:23 by eulutas          ###   ########.fr       */
+/*   Updated: 2025/03/30 16:14:43 by eulutas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ char	*read_line(char *buffer, int fd)
 	if (!hold_line)
 		return (0);
 	read_len = 1;
-	while (!ft_strchr(buffer, '\n') && read_len != 0)
+	while (!gnl_strchr(buffer, '\n') && read_len != 0)
 	{
 		read_len = read(fd, hold_line, BUFFER_SIZE);
 		if (read_len == -1)
 			return (return_free(buffer, hold_line));
 		hold_line[read_len] = '\0';
-		buffer = ft_join(buffer, hold_line);
+		buffer = gnl_join(buffer, hold_line);
 	}
 	free(hold_line);
 	return (buffer);
@@ -84,7 +84,7 @@ char	*clean_buffer(char *buffer)
 	}
 	if (buffer[i] == '\n')
 		i++;
-	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
+	new_buffer = malloc(sizeof(char) * (gnl_strlen(buffer) - i + 1));
 	if (!new_buffer)
 		return (NULL);
 	while (buffer[i] != '\0')
