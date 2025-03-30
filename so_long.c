@@ -14,14 +14,9 @@
 
 int main(int argc, char **argv)
 {
-	int i = 0;
 	if(argc != 2)
 		print_errors(1);
-	while (argv[i])
-	{
-		ft_printf("%s",argv[i]);
-		i++;
-	}
+	map_check(&argv[1]);
 	
 	return (0);
 }

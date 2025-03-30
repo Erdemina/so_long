@@ -15,7 +15,8 @@ OBJ_DIR = obj/
 SRCS = so_long.c \
 	getnextline/get_next_line.c \
 	getnextline/get_next_line_utils.c \
-	functions/error_handle.c
+	functions/error_handle.c \
+	functions/map_checker.c
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
