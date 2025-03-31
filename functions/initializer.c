@@ -56,7 +56,7 @@ static void n_control(t_game *game)
 		if (game->map[i][j] == '\0')
 		{
 			tmp = game->map[i];
-			game->map[i] = ft_strjoin(tmp, "\n");
+			game->map[i] = ft_strjoin(tmp, "\r\n");
 			free(tmp);
 		}
 		i++;
@@ -64,7 +64,7 @@ static void n_control(t_game *game)
 	j = 0;
 	while (game->map[0][j])
 		j++;
-	game->mapx_line = j - 1;
+	game->mapx_line = j - 2;
 }
 
 void free_map(t_game *game)
@@ -96,6 +96,8 @@ void init_map(t_game *game)
 	game->ct_coin = 0;
 	game->ct_exit = 0;
 	game->ct_player = 0;
+	game->px = 0;
+	game->py = 0;
 	int fd_map;
 	fd_map = open(game->f_name, O_RDONLY);
 	game->mapy_line = init_height(fd_map);

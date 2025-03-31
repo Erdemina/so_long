@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-static int ber_check(char *arg)
+static int ber_check(char *arg, t_game *game)
 {
 	int i;
 	char *ber;
@@ -27,15 +27,15 @@ static int ber_check(char *arg)
 	while (arg[i] && ber[i])
 	{
 		if (arg[i] != ber[i])
-			print_errors(2);
+			print_errors(2,game);
 		i++;
 	}
 	if (arg[i] != ber[i])
-		print_errors(2);
+		print_errors(2,game);
 	return (1);
 }
 
-int exist_check(char *path)
+static int exist_check(char *path,t_game *game)
 {
 	int 	fd_file;
 
@@ -43,7 +43,7 @@ int exist_check(char *path)
 	if (fd_file <= 0)
 	{
 		close(fd_file);
-		print_errors(3);
+		print_errors(3,game);
 	}
 	close(fd_file);
 	return (1);
@@ -53,11 +53,11 @@ int exist_check(char *path)
 void file_check(char *arg, t_game *game)
 {
 	game->f_name = arg;
-	ber_check(game -> f_name);
-	exist_check(game -> f_name);
-	exist_check("img/coin.xpm");
-	exist_check("img/exit.xpm");
-	exist_check("img/floor.xpm");
-	exist_check("img/hero.xpm");
-	exist_check("img/wall.xpm");
+	ber_check(game -> f_name,game);
+	exist_check(game -> f_name,game);
+	exist_check("img/coin.xpm",game);
+	exist_check("img/exit.xpm",game);
+	exist_check("img/floor.xpm",game);
+	exist_check("img/hero.xpm",game);
+	exist_check("img/wall.xpm",game);
 }

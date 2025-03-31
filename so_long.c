@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	file_check(argv[1], game);
 	init_map(game);
 	map_check(game);
-
+	ft_printf("PX = %d PY = %d\n",game->px,game->py);
 	free_all(game);
 	return (0);
 }
