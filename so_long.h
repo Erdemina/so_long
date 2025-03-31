@@ -41,5 +41,5 @@ void free_map(t_game *game);
 int free_all(t_game *game);
 int create_xpm(t_game *game);
 int move_player(int key, t_game *game);
-void put_image(t_game *game);
+int put_image(t_game *game);
 #endif

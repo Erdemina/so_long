@@ -59,7 +59,7 @@ int move_player(int key, t_game *game)
 	put_image(game);
 	return (0);
 }
-void put_image(t_game *game)
+int put_image(t_game *game)
 {
 	int i;
 	int j;
@@ -85,4 +85,6 @@ void put_image(t_game *game)
 		}
 		i++;
 	}
+	
+	return (0);
 }

@@ -4,7 +4,7 @@ LIBFT = ./libft/libft.a
 PRINTF = ./printf/libftprintf.a
 MLX = ./minilibx/libmlx.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -L./minilibx -lmlx -lX11 -lXext -lm
 

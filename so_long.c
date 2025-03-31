@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 	put_image(game);
 	mlx_hook(game->mlx_wind, 2, 1L, move_player, game);
 	mlx_hook(game->mlx_wind, 17, 0, free_all, game);
+	mlx_hook(game->mlx_wind, 22, 1L<<17, put_image, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
