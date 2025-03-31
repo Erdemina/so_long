@@ -69,17 +69,15 @@ static void n_control(t_game *game)
 
 void free_map(t_game *game)
 {
+	if (!game->map) 
+		return;
 	int i = 0;
-
-	if (game->map)
+	while (game->map[i])
 	{
-		while (game->map[i])
-		{
-			free(game->map[i]);
-			i++;
-		}
-		free(game->map);
+		free(game->map[i]);
+		i++;
 	}
+	free(game->map);
 }
 static void printmap(t_game *game)
 {
@@ -91,11 +89,12 @@ static void printmap(t_game *game)
 	}
 	
 }
-void init_map(t_game *game)
+void read_map(t_game *game)
 {
 	game->ct_coin = 0;
 	game->ct_exit = 0;
 	game->ct_player = 0;
+	game->ct_move = 0;
 	game->px = 0;
 	game->py = 0;
 	int fd_map;

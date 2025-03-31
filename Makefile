@@ -18,7 +18,8 @@ SRCS = so_long.c \
 	functions/error_handle.c \
 	functions/map_checker.c \
 	functions/file_checker.c \
-	functions/initializer.c
+	functions/read_map.c \
+	functions/window_edit.c
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)%.o)
 

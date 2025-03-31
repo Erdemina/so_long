@@ -129,4 +129,6 @@ void map_check(t_game *game)
 	check_shape(game);
 	check_chars(game);
 	check_reach(player_movable(game->map,game->py,game->px),game);
+	free_map(game);
+	read_map(game);
 }

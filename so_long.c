@@ -18,12 +18,18 @@ int main(int argc, char **argv)
 	
 	game = malloc(sizeof(t_game));
 	if(argc != 2)
-		print_errors(1);
+		print_errors(1,game);
 
 	file_check(argv[1], game);
-	init_map(game);
+	read_map(game);
 	map_check(game);
-	ft_printf("PX = %d PY = %d\n",game->px,game->py);
-	free_all(game);
+	game -> mlx = mlx_init();
+	game -> mlx_wind = mlx_new_window(game->mlx,
+				64 * game->mapx_line, 64 * game->mapy_line, "SO_LONG");
+	if (!game->mlx || !game->mlx_wind || create_xpm(game))
+		print_errors(8,game);
+	put_image(game);
+	mlx_hook(game->mlx_wind, 17, 1L << 2, free_all, game);
+	mlx_loop(game->mlx);
 	return (0);
 }

@@ -44,6 +44,9 @@ static void err_tab2(int x)
 	case 7:
 		ft_printf("How will the player get here?\n");
 		break;
+	case 8:
+		ft_printf("Ooops some THINGS can't be created! Prob. mlx or xpm!\n");
+		break;
 
 	default:
 		break;
@@ -61,8 +64,29 @@ void print_errors(int x, t_game *game)
 	exit(1);
 }
 
-void free_all(t_game *game)
+int free_all(t_game *game)
 {
+	if (game->xpm_coin)
+		mlx_destroy_image(game->mlx, game->xpm_coin);
+	if (game->xpm_wall)
+		mlx_destroy_image(game->mlx, game->xpm_wall);
+	if (game->xpm_hero)
+		mlx_destroy_image(game->mlx, game->xpm_hero);
+	if (game->xpm_exit)
+		mlx_destroy_image(game->mlx, game->xpm_exit);
+	if (game->xpm_floor)
+		mlx_destroy_image(game->mlx, game->xpm_floor);
+
+	if (game->mlx_wind)
+		mlx_destroy_window(game->mlx, game->mlx_wind);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+
 	free_map(game);
 	free(game);
+	exit(0);
+	return (1);
 }

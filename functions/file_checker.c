@@ -50,6 +50,23 @@ static int exist_check(char *path,t_game *game)
 	
 }
 
+int create_xpm(t_game *game)
+{
+	int x;
+	int y;
+
+	y = 64;
+	x = 64;
+	game->xpm_coin = mlx_xpm_file_to_image(game->mlx, "img/coin.xpm",&x,&y);
+	game->xpm_exit = mlx_xpm_file_to_image(game->mlx, "img/exit.xpm",&x,&y);
+	game->xpm_floor = mlx_xpm_file_to_image(game->mlx, "img/floor.xpm",&x,&y);
+	game->xpm_hero = mlx_xpm_file_to_image(game->mlx, "img/hero.xpm",&x,&y);
+	game->xpm_wall = mlx_xpm_file_to_image(game->mlx,"img/wall.xpm",&x,&y);
+	if(!game->xpm_coin || !game->xpm_exit || !game->xpm_floor || !game->xpm_hero || !game->xpm_wall)
+		return (1);
+	return (0);
+}
+
 void file_check(char *arg, t_game *game)
 {
 	game->f_name = arg;
