@@ -79,24 +79,8 @@ void free_map(t_game *game)
 	}
 	free(game->map);
 }
-static void printmap(t_game *game)
-{
-	int i = 0;
-	while (game->map[i])
-	{
-		ft_printf("%s",game->map[i]);
-		i++;
-	}
-	
-}
 void read_map(t_game *game)
 {
-	game->ct_coin = 0;
-	game->ct_exit = 0;
-	game->ct_player = 0;
-	game->ct_move = 0;
-	game->px = 0;
-	game->py = 0;
 	int fd_map;
 	fd_map = open(game->f_name, O_RDONLY);
 	game->mapy_line = init_height(fd_map);
@@ -105,5 +89,4 @@ void read_map(t_game *game)
 	fd_map = open(game->f_name, O_RDONLY);
 	add_map(fd_map, game);
 	n_control(game);
-	printmap(game);
 }

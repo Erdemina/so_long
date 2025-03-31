@@ -29,6 +29,8 @@ typedef struct s_game
 	int		ct_move;
 	int		px;
 	int		py;
+	int		ex;
+	int		ey;
 }	t_game;
 
 void map_check(t_game *game);
@@ -38,5 +40,6 @@ void read_map(t_game *game);
 void free_map(t_game *game);
 int free_all(t_game *game);
 int create_xpm(t_game *game);
+int move_player(int key, t_game *game);
 void put_image(t_game *game);
 #endif

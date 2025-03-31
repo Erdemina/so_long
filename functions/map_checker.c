@@ -18,7 +18,11 @@ static void update_char(t_game *game ,char c,int y,int x)
 	else if(c == 'C')
 		game->ct_coin += 1;
 	else if(c == 'E')
-		game->ct_exit += 1;
+		{
+			game->ct_exit += 1;
+			game->ex = x;
+			game->ey = y;
+		}
 	else if(c == 'P')
 	{
 		game->ct_player += 1;
